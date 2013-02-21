@@ -52,7 +52,7 @@ the box range (split between the left and right sides).
 
 Must be a positive number.  As it gets bigger, more whiskers may get
 cut off.  As it gets smaller, there is more room for extremely large
-or small whiskers, but the box proportions may be obscured.
+whiskers, but the box proportions may be obscured.
 
 =head2 with_scale
 
