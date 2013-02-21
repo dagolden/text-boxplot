@@ -109,18 +109,24 @@ Each dataset must be an array reference with the following fields:
 For example, this code:
 
     my $tbp = Text::BoxPlot->new( with_scale => 1 );
-    say for $tbp->render( ["test data", -2.5, -1, 0, 1, 2.5] );
+    say for $tbp->render( [ 'test data', -2.5, -1, 0, 1, 2.5 ] );
 
 Produces this output:
 
-            |-1.96721                                             1.96721|
-    test data <--------------===============O===============--------------->
+              |-2                                                         2|
+    test data <--------------===============O===============-------------->
 
+The greater-than and less-than signs at the edge indicate that the whisker
+has been cut off at this scale.
+
+If the C<box_weight> were set to 0.5, C<render> would produce this output:
+
+              |-3                                                         3|
+    test data      ---------------==========O==========---------------
 =cut
 
 sub render {
     my ( $self, @datasets ) = @_;
-    # XXX maybe croak if <=0 or >1?
     my $gamma = 2 * max( 0, $self->box_weight || 1 );
     my $adj_width = $self->width - $self->label_width - 2;
 
