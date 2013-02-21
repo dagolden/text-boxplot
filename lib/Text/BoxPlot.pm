@@ -20,6 +20,16 @@ use constant {
     MAX  => 5,
 };
 
+=construct new
+
+    $tbp = Text::BoxPlot->new( %attributes );
+    $tbp = Text::BoxPlot->new( \%attributes );
+
+Constructs a new object.  Attributes may be passed as key-value pairs or
+as a hash reference;
+
+=cut
+
 =attr width
 
 Defines the maximum total width of a rendered box-plot, including the series label.
